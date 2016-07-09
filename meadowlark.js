@@ -14,6 +14,10 @@ app.get('/about',function(req,res){
     var randomFortune = fortunes[Math.floor(Math.random()*fortunes.length)];
     res.render('about',{fortune:randomFortune});
 })
+app.get('/1',function(req,res){
+    var randomFortune = fortunes[Math.floor(Math.random()*fortunes.length)];
+    res.render('about',{fortune:randomFortune});
+})
 // 404页面
 app.use(function(req,res){
     res.status(404);
