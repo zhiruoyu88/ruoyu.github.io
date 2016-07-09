@@ -1,0 +1,27 @@
+{
+  "name": "zry",
+  "version": "1.0.0",
+  "description": "my first package",
+  "main": "meadowlark.js",
+  "scripts": "pm2 start meadowlark.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhiruoyu/test.git"
+  },
+  "keywords": [
+    "Hello",
+    "World!"
+  ],
+  "author": "zhiruoyu",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/zhiruoyu/test/issues"
+  },
+  "homepage": "https://github.com/zhiruoyu/test#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "express3-handlebars": "^0.5.2",
+    "static": "^2.0.0"
+  }
+}
