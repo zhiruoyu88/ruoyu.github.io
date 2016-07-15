@@ -4,20 +4,23 @@ var handlebars = require('express3-handlebars')
             .create({defaultLayout:'main'});
     app.engine('handlebars',handlebars.engine);
     app.set('view engine','handlebars');
-app.set('port',process.env.PORT || 3000);
+app.set('port',process.env.PORT || 8080);
 app.use(express.static(__dirname+'/public'));
-app.get('/',function(req,res){
-    res.type('text/html');
-    res.render('home');
-});
-app.get('/about',function(req,res){
-    var randomFortune = fortunes[Math.floor(Math.random()*fortunes.length)];
-    res.render('about',{fortune:randomFortune});
-})
-app.get('/1',function(req,res){
-    var randomFortune = fortunes[Math.floor(Math.random()*fortunes.length)];
-    res.render('about',{fortune:randomFortune});
-})
+app.use('/',require('./routes/index'));
+app.get('/about',require('./routes/about'))
+// download
+// app.get('/download',function(req,res){
+//     res.download('WEB前端智若雨个人工作计划.docx','suibian.docx',function(err){
+//         if(err){
+//             console.log('下载失败');
+//         }else {
+//             console.log('下载成功');
+//         }
+//     })
+// })
+// app.get('/1',function(req,res){
+//     res.redirect('/about');
+// })
 // 404页面
 app.use(function(req,res){
     res.status(404);
@@ -32,10 +35,3 @@ app.use(function(err,req,res,next){
 app.listen(app.get('port'),function(){
     console.log('Express started on http://localhost:'+app.get('port')+'; Press Ctrl-C to terminate.')
 });
-var fortunes = [
-    '你不克服你的恐惧，恐惧将战胜你',
-    'Rivers need springs',
-    '不要害怕你所不知道的' ,
-    '你将会有一个很大的惊喜',
-    '无论发生什么，keep it simple'
-];
