@@ -9,17 +9,18 @@ client.connect();
 client.query('use '+'MYFIRST');
 // 从表查询
 client.query(
-    'SELECT * FROM '+'usr',
+    'SELECT top 1 id FROM '+'usr',
     function selectdb (err,results,fields){
         if(err){
             throw err;
         }
         if(results)
       {
-          for(var i = 0; i < results.length; i++)
-          {
-              console.log("%d\t%s\t%s", results[i].id, results[i].name, results[i].sex);
-          }
+        console.log(results);
+          // for(var i = 0; i < results.length; i++)
+          // {
+          //     console.log("%d\t%s\t%s", results[i].id, results[i].name, results[i].sex);
+          // }
       }    
     client.end(); 
     });
