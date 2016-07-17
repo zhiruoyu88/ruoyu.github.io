@@ -7,7 +7,11 @@ var handlebars = require('express3-handlebars')
 app.set('port',process.env.PORT || 8080);
 app.use(express.static(__dirname+'/public'));
 app.use('/',require('./routes/index'));
-app.get('/about',require('./routes/about'))
+app.get('/about',require('./routes/about'));
+app.get('/login',require('./routes/login'));
+
+
+
 // download
 // app.get('/download',function(req,res){
 //     res.download('WEB前端智若雨个人工作计划.docx','suibian.docx',function(err){
@@ -21,6 +25,9 @@ app.get('/about',require('./routes/about'))
 // app.get('/1',function(req,res){
 //     res.redirect('/about');
 // })
+
+
+
 // 404页面
 app.use(function(req,res){
     res.status(404);
