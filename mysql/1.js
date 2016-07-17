@@ -9,7 +9,7 @@ client.connect();
 client.query('use '+'MYFIRST');
 // 从表查询
 client.query(
-    'SELECT top 1 id FROM '+'usr',
+    'SELECT * FROM usr where name="admin"',
     function selectdb (err,results,fields){
         if(err){
             throw err;
