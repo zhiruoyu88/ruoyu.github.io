@@ -8,7 +8,7 @@ app.set('port',process.env.PORT || 8080);
 app.use(express.static(__dirname+'/public'));
 app.use('/',require('./routes/index'));
 app.use('/about',require('./routes/about'));
-app.use('/login',require('./routes/login'));
+app.get('/login',require('./routes/login'));
 
 
 
