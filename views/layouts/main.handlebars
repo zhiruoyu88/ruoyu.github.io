@@ -1,11 +1,94 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>meadowlark travel</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <meta charset="UTF-8">
+    <title>智若雨个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta name="Keywords" contnet="个人博客，个人网站，小白">
+    <meta name="Description" content="这是我的第一个website，这里我会分享我的成长，记录我生活的点滴！少年，奋斗ing！">
+    <link rel="icon" href="img/fav.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <header><img src="/img/logo.jpg" alt=""></header>
-    {{{body}}}
+    <div class="containter">
+        <div class="left">
+            <div class="article">
+                <div class="inner">
+                    <h2>我的第一片文章</h2>
+                    <p class="content">
+                        马无夜草不肥，人无外财不富。
+                    </p>
+                    <span class="time"><i class="time-icon"></i>2016-07-16</span>
+                    <a href="" class="tag"><i class="tag-tri"></i><span class="tag-div"><i class="point"></i>生活</span></a>
+                </div>
+            </div>
+        </div>
+        <div style="position:fixed;width:300px;height:100%;overflow:hidden;right:0;">
+            <div id="picLoop" class="right">
+                <div class="shade"></div>
+                <div class="per-img-box">
+                    <div class="placeholder">
+                        <a href="/" class="headpic">
+                            <img src="img/per.jpg" alt="">
+                        </a>
+                    </div>
+                    <h1 class='author'>Convert</h1>
+                </div>
+                <div id="changeBtn" class="gobtn">目录</div>
+            </div>
+            <div id='List' class="right2">
+                <span id="goBack" class="goback"></span>
+                <div class="today">
+                    Today:<span id="today"></span>
+                </div>
+                <div class="r-item comeon">岁月不饶人啊!  小伙子，好好敲代码，主席看好你！</div>
+                <div class="r-item">
+                    <h3>标签</h3>
+                    <ul>
+                        <a href=""><li>生活</li></a>
+                        <a href=""><li>技术</li></a>
+                    </ul>
+                </div>
+                <div class="r-item">
+                    <h3>最新文章</h3>
+                    <ul>
+                        <a href=""><li>我的第一篇文章</li></a>
+                        <a href=""><li>斑马斑马</li></a>
+                    </ul>
+                </div>
+                <a class="login" href="">login&rarr;</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript">
+       !function(win,doc,$,undefined){
+            var date = new Date(),
+                year = date.getFullYear().toString(),
+                month = date.getMonth()+1,
+                day = date.getDate(),
+                $changeBtn = $('#changeBtn'),
+                $goback = $('#goBack'),
+                $picLoop = $('#picLoop'),
+                $List = $('#List'),
+                today,
+                randomNum = Math.floor(Math.random()*10);
+            month = month<10?'0'+month:month;
+            today = year+'-'+month+'-'+day;
+            $('#today').html(today);
+            
+            $picLoop.css('background-image','url(img/bc_'+randomNum+'.jpg)');
+            $changeBtn.on('click',function(){
+                $picLoop.animate({'right':'300px'},200);
+                $List.animate({'right':0},200);
+            })
+            console.log($goback[0])
+            $goback.on('click',function(){
+                $picLoop.animate({'right':'0px'},200);
+                $List.animate({'right':'-300px'},200);
+            })
+       }(window,document,$)
+    </script>
 </body>
 </html>
