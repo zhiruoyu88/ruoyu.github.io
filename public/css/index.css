@@ -1291,3 +1291,14 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
             cursor: pointer;
             margin:10px 0px 0px 10px;
         }
+        /*登录*/
+        .login-btn {
+          width: 80px;
+          text-align: center;
+          height: 40px;
+          line-height: 40px;
+          background-color: #ccc;
+          border-radius: 3px;
+          margin: 20px 0 0 50px;
+          cursor: pointer;
+        }
