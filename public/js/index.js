@@ -28,7 +28,7 @@
                 password:$('#password').val()
             }
             $('#loginBtn').on('click',function(){
-                $.post('http://23.83.235.220:8080/login',usr,function(data){
+                $.post('23.83.235.220:8080/login',usr,function(data){
                     console.log(data);
                 })
             });
