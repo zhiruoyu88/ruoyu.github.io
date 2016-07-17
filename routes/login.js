@@ -1,7 +1,8 @@
 var express = require('express'),
     app = express();
-app.get('/login',function(req,res){
-    // res.writeHead(200,{'content-Type':'text/html'});
-    res.render('login');
-});
-module.exports = app;
+var a = function(req,res){
+        res.type('text/html');
+        res.render('login');
+}
+
+module.exports = a;

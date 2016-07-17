@@ -22,5 +22,14 @@
             $goback.on('click',function(){
                 $picLoop.animate({'right':'0px'},200);
                 $List.animate({'right':'-300px'},200);
-            })
+            });
+            var usr = {
+                name:$('#username').val(),
+                password:$('#password').val()
+            }
+            $('#loginBtn').on('click',function(){
+                $.post('23.83.235.220:3000',usr,function(data){
+                    console.log(data);
+                })
+            });
        }(window,document,$);

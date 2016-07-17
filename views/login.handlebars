@@ -1,26 +1,7 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <title>登录</title>
-</head>
-<body>
+
     <div class="login">
         <label for="">用户名：</label><input id="username" type="text">
         <label for="">密码：</label><input id="password" type="password">
         <div id="loginBtn" class="login-btn">登录</div>
     </div>
-    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>
-    var usr = {
-        name:$('#username').val(),
-        password:$('#password').val()
-    }
-    $('#loginBtn').on('click',function(){
-        $.post('23.83.235.220:3000',usr,function(data){
-            console.log(data);
-        })
-    });
-    </script>
-</body>
-</html>
+    
