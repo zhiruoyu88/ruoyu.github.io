@@ -9,6 +9,13 @@ app.use(express.static(__dirname+'/public'));
 app.use('/',require('./routes/index'));
 app.get('/about',require('./routes/about'));
 app.get('/login',require('./routes/login'));
+app.post('/login', function(req, res){
+  var user = {
+    name: req.body.name,
+    pwd:  req.body.password
+  }
+  console.log(user)
+});
 
 
 
