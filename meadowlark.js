@@ -13,7 +13,8 @@ app.post('/login', function(req, res){
   var user = {
     name: req.body.name,
     pwd:  req.body.password
-  }
+  };
+  res.setHeader("Access-Control-Allow-Origin", "*");
   console.log(user)
 });
 
