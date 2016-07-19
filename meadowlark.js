@@ -1,13 +1,13 @@
 var express = require('express'),
     app = express();
-var bodyp = require('body-parser');
+var bodyParser = require('body-parser');
 var handlebars = require('express3-handlebars')
             .create({defaultLayout:'main'});
     app.engine('handlebars',handlebars.engine);
     app.set('view engine','handlebars');
 app.set('port',process.env.PORT || 8080);
 app.use(express.static(__dirname+'/public'));
-app.use(express.bodyParser());
+app.use(bodyParser);
 app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
