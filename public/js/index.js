@@ -28,7 +28,7 @@
                 password:$('#password').val()
             }
             $('#loginBtn').on('click',function(){
-                $.post('http://127.0.0.1:8080/',usr,function(data){
+                $.post('/login',usr,function(data){
                     console.log(data);
                 })
             });
