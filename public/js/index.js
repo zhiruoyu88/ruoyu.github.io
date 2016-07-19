@@ -18,17 +18,16 @@
                 $picLoop.animate({'right':'300px'},200);
                 $List.animate({'right':0},200);
             })
-            console.log($goback[0])
             $goback.on('click',function(){
                 $picLoop.animate({'right':'0px'},200);
                 $List.animate({'right':'-300px'},200);
             });
-            var usr = {
-                name:$('#username').val(),
-                password:$('#password').val()
-            }
             $('#loginBtn').on('click',function(){
-                $.post('/about',usr,function(data){
+                var usr = {
+                    name:$('#username').val(),
+                    password:$('#password').val()
+                };
+                $.post('/login',usr,function(data){
                     console.log(data);
                 })
             });
