@@ -7,6 +7,11 @@ var fortunes = [
 ];
 var about = function(req,res){
     var randomFortune = fortunes[Math.floor(Math.random()*fortunes.length)];
+     var user = {
+    name: req.body.name,
+    pwd:  req.body.password
+  };
+  console.log(user)
     res.render('about',{fortune:randomFortune});
 };
 module.exports = about;
