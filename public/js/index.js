@@ -28,7 +28,7 @@
                 password:$('#password').val()
             }
             $('#loginBtn').on('click',function(){
-                $.post('/login',usr,function(data){
+                $.post('/about',usr,function(data){
                     console.log(data);
                 })
             });
