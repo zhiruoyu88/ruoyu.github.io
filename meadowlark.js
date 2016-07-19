@@ -6,6 +6,9 @@ var handlebars = require('express3-handlebars')
     app.set('view engine','handlebars');
 app.set('port',process.env.PORT || 8080);
 app.use(express.static(__dirname+'/public'));
+app.get('/login',require('./routes/login'));
+app.use('/',require('./routes/index'));
+app.get('/about',require('./routes/about'));
 app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -14,9 +17,6 @@ app.all('*', function(req, res, next) {
     res.header("Content-Type", "application/json;charset=utf-8");
     next();
 });
-app.use('/',require('./routes/index'));
-app.get('/about',require('./routes/about'));
-app.get('/login',require('./routes/login'));
 app.post('/login', function(req, res){
   var user = {
     name: req.body.name,
