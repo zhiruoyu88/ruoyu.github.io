@@ -17,13 +17,13 @@ app.all('*', function(req, res, next) {
 app.get('/login',require('./routes/login'));
 app.use('/',require('./routes/index'));
 app.get('/about',require('./routes/about'));
-// app.post('/login', function(req, res){
-//   var user = {
-//     name: req.body.name,
-//     pwd:  req.body.password
-//   };
-//   console.log(user)
-// });
+app.post('/login', function(req, res){
+  var user = {
+    name: req.body.name,
+    pwd:  req.body.password
+  };
+  console.log(user)
+});
 
 
 
