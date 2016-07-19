@@ -6,6 +6,14 @@ var handlebars = require('express3-handlebars')
     app.set('view engine','handlebars');
 app.set('port',process.env.PORT || 8080);
 app.use(express.static(__dirname+'/public'));
+app.all('*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+    res.header("X-Powered-By",' 3.2.1')
+    res.header("Content-Type", "application/json;charset=utf-8");
+    next();
+});
 app.use('/',require('./routes/index'));
 app.get('/about',require('./routes/about'));
 app.get('/login',require('./routes/login'));
@@ -14,7 +22,6 @@ app.post('/login', function(req, res){
     name: req.body.name,
     pwd:  req.body.password
   };
-  res.setHeader("Access-Control-Allow-Origin", "*");
   console.log(user)
 });
 
