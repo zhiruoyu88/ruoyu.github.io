@@ -12,13 +12,13 @@ function selectUsr (client,username,callback){
     client.query(
     'SELECT password FROM usr where name="'+admin+'"',
     function selectdb (err,results,fields){
-        if(err){
-            throw err;
-        }
-        if(results)
-        {
+        // if(err){
+        //     throw err;
+        // }
+        // if(results)
+        // {
             callback(results);
-        }    
+        // }    
     });
 }
 // 插入数据
