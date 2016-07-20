@@ -11,7 +11,7 @@ client.query('use '+'MYFIRST');
 function selectUsr (client,username,callback){
   console.log(username);
     client.query(
-    'SELECT password FROM usr where name="'+username+'"',
+    'SELECT PASSWORD FROM usr where name="'+username+'"',
     function selectdb (err,results,fields){
         if(err){
             throw err;
