@@ -31,5 +31,5 @@ function insertSome (client , username , password,callback){
            callback(err);
      });
 }
-exports.connect = client;
+exports.client = client;
 exports.selectUsr =selectUsr;
