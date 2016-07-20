@@ -27,7 +27,9 @@ app.post('/login', function(req, res){
     name: req.body.name,
     pwd:  req.body.password
   };
-  console.log(user)
+  require('./mysql/login').selectUsr(client,user.name,function(results){
+    console.log(results);
+  })
 });
 
 
