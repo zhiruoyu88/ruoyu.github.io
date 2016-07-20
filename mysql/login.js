@@ -24,12 +24,12 @@ function selectUsr (client,username,callback){
 // 插入数据
 function insertSome (client , username , password,callback){
     client.query('insert into usr value(?,?)', [username, password], function(err,result){
-27         if(err){
-28             console.log( "error:" + err.message);
-29             return err;
-30         }
-31           callback(err);
-32     });
+         if(err){
+            console.log( "error:" + err.message);
+            return err;
+         }
+           callback(err);
+     });
 }
 exports.connect = client;
 exports.selectUsr =selectUsr;
