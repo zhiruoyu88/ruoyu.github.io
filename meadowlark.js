@@ -1,6 +1,7 @@
 var express = require('express'),
     app = express();
 var bodyParser = require('body-parser');
+var login = require('./mysql/login');
 var handlebars = require('express3-handlebars')
             .create({defaultLayout:'main'});
     app.engine('handlebars',handlebars.engine);
@@ -27,7 +28,7 @@ app.post('/login', function(req, res){
     name: req.body.name,
     pwd:  req.body.password
   };
-  require('./mysql/login').selectUsr(client,user.name,function(results){
+  login.selectUsr(login.client,user.name,function(results){
     console.log(results);
   })
 });

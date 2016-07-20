@@ -16,9 +16,9 @@ function selectUsr (client,username,callback){
             throw err;
         }
         if(results)
-      {
-          callback(results);
-      }    
+        {
+            callback(results);
+        }    
     });
 }
 // 插入数据
