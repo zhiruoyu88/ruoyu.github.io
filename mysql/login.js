@@ -9,6 +9,7 @@ client.connect();
 client.query('use '+'MYFIRST');
 // 从表查询
 function selectUsr (client,username,callback){
+  console.log(username);
     client.query(
     'SELECT password FROM usr where name="'+username+'"',
     function selectdb (err,results,fields){
