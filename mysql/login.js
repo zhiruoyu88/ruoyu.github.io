@@ -1,5 +1,7 @@
 var mysql = require('mysql');
 var client = mysql.createConnection({  
+  host:'localhost',
+  port:8080,
   user: 'root',  
   password: 'lixiang0'
 });  
@@ -11,7 +13,7 @@ client.query('use '+'MYFIRST');
 function selectUsr (client,username,callback){
   console.log(username);
     client.query(
-    'SELECT PASSWORD FROM usr where name="'+username+'"',
+    'SELECT password FROM usr where name="'+username+'";',
     function selectdb (err,results,fields){
         if(err){
             throw err;
@@ -29,7 +31,7 @@ console.log(re);
 selectUsr(client,'admin',callback);
 // 插入数据
 function insertSome (client , username , password,callback){
-    client.query('insert into usr value(username,password)', [username, password], function(err,result){
+    client.query('insert into usr value('+username+','+password+');', [username, password], function(err,result){
          if(err){
             console.log( "error:" + err.message);
             return err;
