@@ -18,13 +18,14 @@ function selectUsr (client,username,callback){
         }
         if(results)
         {
+          console.log(results);
             callback(results);
         }    
     });
 }
 // 插入数据
 function insertSome (client , username , password,callback){
-    client.query('insert into usr value(?,?)', [username, password], function(err,result){
+    client.query('insert into usr value(username,password)', [username, password], function(err,result){
          if(err){
             console.log( "error:" + err.message);
             return err;
