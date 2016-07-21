@@ -22,9 +22,6 @@ function selectUsr (client,username,callback){
         }    
     });
 }
-var callback = function(re){
-console.log(re);
-}
 selectUsr(client,'admin',callback);
 // 插入数据
 function insertSome (client , username , password,callback){
