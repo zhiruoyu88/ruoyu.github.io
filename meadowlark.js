@@ -23,13 +23,18 @@ app.all('*', function(req, res, next) {
 app.get('/login',require('./routes/login'));
 app.use('/',require('./routes/index'));
 app.get('/about',require('./routes/about'));
+app.get('/write',require('./routes/write'))
 app.post('/login', function(req, res){
   var user = {
     name: req.body.name,
     pwd:  req.body.password
   };
   login.selectUsr(login.client,user.name,function(results){
-    console.log(JSON.stringify(results));
+    if(results==user.pwd){
+        redirect('/write');
+    }else{
+        res.send('您密码有误，请重新输入');
+    }
   })
 });
 
