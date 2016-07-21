@@ -31,11 +31,9 @@ app.post('/login', function(req, res){
   };
   login.selectUsr(login.client,user.name,function(results){
     if(results==user.pwd){
-        res.writeHead(200, {'Content-Type': 'text/plain'});
-        res.send('true');
+        res.json({sucess:true});
     }else{
-        res.writeHead(200, {'Content-Type': 'text/plain'});
-        res.send('false');
+        res.json({sucess:false});
     }
   })
 });
