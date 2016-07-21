@@ -28,7 +28,11 @@
                     password:$('#password').val()
                 };
                 $.post('/login',usr,function(data){
-                    console.log(data);
+                    if(data.sucess){
+                        window.location.href="23.83.235.220:3000/write";
+                    }else{
+
+                    }
                 })
             });
        }(window,document,$);
