@@ -31,9 +31,9 @@ app.post('/login', function(req, res){
   };
   login.selectUsr(login.client,user.name,function(results){
     if(results==user.pwd){
-        redirect('/write');
+        res.redirect('/write');
     }else{
-        res.send('您密码有误，请重新输入');
+        res.redirect('/login');
     }
   })
 });
