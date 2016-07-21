@@ -30,7 +30,7 @@ app.post('/login', function(req, res){
   };
   login.selectUsr(login.client,user.name,function(results){
     console.log('results:')
-    console.log(results);
+    console.log(JSON.stringify(results));
   })
 });
 
