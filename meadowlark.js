@@ -31,8 +31,10 @@ app.post('/login', function(req, res){
   };
   login.selectUsr(login.client,user.name,function(results){
     if(results==user.pwd){
-        res.send('sucess');
+        res.writeHead(200, {'Content-Type': 'text/plain'});
+        res.send('true');
     }else{
+        res.writeHead(200, {'Content-Type': 'text/plain'});
         res.send('false');
     }
   })
