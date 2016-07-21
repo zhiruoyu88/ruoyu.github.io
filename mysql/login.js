@@ -22,7 +22,6 @@ function selectUsr (client,username,callback){
         }    
     });
 }
-selectUsr(client,'admin',callback);
 // 插入数据
 function insertSome (client , username , password,callback){
     client.query('insert into usr value('+username+','+password+');', [username, password], function(err,result){
