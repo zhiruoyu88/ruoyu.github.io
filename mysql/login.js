@@ -18,7 +18,7 @@ function selectUsr (client,username,callback){
         }
         if(results)
         {
-            callback(results);
+            callback(results[0].password);
         }    
     });
 }

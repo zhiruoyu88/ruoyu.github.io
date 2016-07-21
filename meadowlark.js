@@ -29,7 +29,6 @@ app.post('/login', function(req, res){
     pwd:  req.body.password
   };
   login.selectUsr(login.client,user.name,function(results){
-    console.log('results:')
     console.log(JSON.stringify(results));
   })
 });
