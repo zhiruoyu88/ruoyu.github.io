@@ -31,9 +31,9 @@ app.post('/login', function(req, res){
   };
   login.selectUsr(login.client,user.name,function(results){
     if(results==user.pwd){
-        res.redirect('/write');
+        res.write('sucess');
     }else{
-        res.redirect('/login');
+        res.write('false');
     }
   })
 });
