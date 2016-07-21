@@ -31,9 +31,9 @@ app.post('/login', function(req, res){
   };
   login.selectUsr(login.client,user.name,function(results){
     if(results==user.pwd){
-        res.write('sucess');
+        res.send('sucess');
     }else{
-        res.write('false');
+        res.send('false');
     }
   })
 });
