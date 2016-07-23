@@ -23,7 +23,7 @@ app.all('*', function(req, res, next) {
 app.get('/login',require('./routes/login'));
 app.use('/',require('./routes/index'));
 app.get('/about',require('./routes/about'));
-app.use('/write',require('./routes/write'))
+app.get('/write',require('./routes/write'));
 app.post('/login', function(req, res){
   var user = {
     name: req.body.name,
@@ -59,12 +59,14 @@ app.post('/login', function(req, res){
 // 404页面
 app.use(function(req,res){
     res.status(404);
+    res.type('text/html');
     res.render('404');
 });
 // 500页面
 app.use(function(err,req,res,next){
     console.error(err.stack);
     res.status(500);
+     res.type('text/html');
     res.render('500');
 });
 app.listen(app.get('port'),function(){
