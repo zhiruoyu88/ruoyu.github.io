@@ -16,7 +16,7 @@ function selectUsr (client,username,callback){
         if(err){
             throw err;
         }
-        if(results)
+        if(results[0].password)
         {
             callback(results[0].password);
         }else{
