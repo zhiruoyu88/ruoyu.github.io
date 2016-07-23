@@ -77,7 +77,7 @@
         editor.create();
         $('#release').on('click',function(){
             var title = $('#title').val(),
-                content = $('.code-textarea'),
+                content = $('.code-textarea').html(),
                 date = new Date(),
                 year = date.getFullYear().toString(),
                 month = date.getMonth()+1,
