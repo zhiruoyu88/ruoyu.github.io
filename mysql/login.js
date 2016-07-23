@@ -16,11 +16,13 @@ function selectUsr (client,username,callback){
         if(err){
             throw err;
         }
-        console.log(results)
-        // if(results)
-        // {
-        //     callback(results[0].password);
-        // }    
+        // console.log(results)   username 没有查到的为空数组
+        if(results)
+        {
+            callback(results[0].password);
+        }else if (results.length==0){
+            callback(false);
+        }    
     });
 }
 // 插入数据
