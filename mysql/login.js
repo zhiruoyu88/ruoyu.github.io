@@ -16,9 +16,9 @@ function selectUsr (client,username,callback){
         if(err){
             throw err;
         }
-        // username 没有查到的为空数组
-        console.log(results);
-           console.log(results.length);
+        // username 没有查到的为空数组  查到为[ RowDataPacket { password: '你的密码' } ]
+        // console.log(results);
+        //    console.log(results.length);
         if(results.length!=0)
         {
             callback(results[0].password);
@@ -26,6 +26,22 @@ function selectUsr (client,username,callback){
             callback(false);
         }    
     });
+}
+
+function selectArticle (client,callback){
+    client.query(
+    'select * from blog_article;',
+    function selectdb (err,results,fields){
+        if(err){
+            throw err;
+        }
+        if(results.length!==0){
+            callback(results);
+        }else if (results.length==0){
+            callback(false);
+        }
+    }
+)
 }
 // 插入数据
 function insertSome (client , username , password,callback){
