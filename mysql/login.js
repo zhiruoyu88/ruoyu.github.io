@@ -65,3 +65,4 @@ function insertblog (client,title,content,author,date,tag,callback){
 exports.client = client;
 exports.selectUsr =selectUsr;
 exports.insertblog = insertblog;
+exports.selectArticle = selectArticle;
