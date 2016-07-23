@@ -33,10 +33,7 @@ function insertSome (client , username , password,callback){
      });
 }
 function insertblog (client,title,content,author,date,tag,callback){
-    console.log(content);
-    console.log(author);
-    console.log(date);
-    client.query('insert into blog_article value('+title+','+content+','+author+','+date+','+tag+');', ['blog_title', 'blog_content','blog_author','write_date','blog_tag'], function(err,result){
+    client.query('insert into blog_article(id,blog_title, blog_content,blog_author,write_date,blog_tag) value(0,?,?,?,?,?)',[title,content,author,date,tag], function(err,result){
          if(err){
             console.log( "error:" + err.message);
             return err;
