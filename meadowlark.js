@@ -40,25 +40,20 @@ app.post('/login', function(req, res){
   })
 });
 app.post('/write', function(req, res){
-   
-    console.log(req);
-     console.log(req.body);
-      console.log(req.query);
-       console.log(req.xhr);
-  // var blog = {
-  //   title: req.body.title,
-  //   content:  req.body.content,
-  //   author:req.body.author,
-  //   date:req.body.date,
-  //   tag:req.body.tag
-  // };
-  // login.insertblog(login.client,blog.title,blog.content,blog.author,blog.date,blog.tag,function(result){
-  //   if(result!=''){
-  //       res.json({sucess:true});
-  //   }else{
-  //       res.json({sucess:false});
-  //   }
-  // })
+  var blog = {
+    title: req.body.title,
+    content:  req.body.content,
+    author:req.body.author,
+    date:req.body.date,
+    tag:req.body.tag
+  };
+  login.insertblog(login.client,blog.title,blog.content,blog.author,blog.date,blog.tag,function(result){
+    if(result!=''){
+        res.json({sucess:true});
+    }else{
+        res.json({sucess:false});
+    }
+  })
 });
 
 
