@@ -22,6 +22,7 @@ app.all('*', function(req, res, next) {
 });
 app.get('/login',require('./routes/login'));
 app.use('/',require('./routes/index'));
+app.use('/index',require('./routes/index'));
 app.get('/about',require('./routes/about'));
 app.get('/write',require('./routes/write'));
 app.post('/login', function(req, res){
@@ -31,6 +32,22 @@ app.post('/login', function(req, res){
   };
   login.selectUsr(login.client,user.name,function(results){
     if(results==user.pwd){
+        res.json({sucess:true});
+    }else{
+        res.json({sucess:false});
+    }
+  })
+});
+app.post('/write', function(req, res){
+  var blog = {
+    title: req.body.title,
+    content:  req.body.content,
+    author:req.body.author,
+    date:req.body.date,
+    tag:req.body.tag
+  };
+  login.insertblog(login.client,blog.title,blog.content,blog.author,blog.date,blog.tag,function(result){
+    if(result!=''){
         res.json({sucess:true});
     }else{
         res.json({sucess:false});

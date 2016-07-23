@@ -32,5 +32,15 @@ function insertSome (client , username , password,callback){
            callback(err);
      });
 }
+function insertblog (client,title,content,author,date,tag,callback){
+    client.query('insert into blog_article value('+title+','+content+','+author+','+date+','+tag+');', [blog_title, blog_content,blog_author,write_date,blog_tag], function(err,result){
+         if(err){
+            console.log( "error:" + err.message);
+            return err;
+         }
+           callback(result);
+     });
+}
 exports.client = client;
 exports.selectUsr =selectUsr;
+exports.insertblog = insertblog;

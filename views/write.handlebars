@@ -10,7 +10,13 @@
             position: relative;
         }
     </style>
-<p>发布文章</p>
+<p class="title">发布文章</p>
+    <div class="a-title">
+        <label for="">标题：</label><input id="title" type="text">
+    </div>
+    <div class="tag">
+        <label class="tag-label" for="">tag：</label><label class="label-item"><input value="0" name="tag" type="radio">生活</label><label class="label-item"><input value="1" name="tag" type="radio">技术</label>
+    </div>
     <div id="editor-container" class="container">
         <div id="editor-trigger"><p>请输入内容</p><p>&lt;script&gt;&lt;/script&gt;</p></div>
       <!--   <textarea id="editor-trigger" style="display:none;">
@@ -18,7 +24,7 @@
         </textarea> -->
     </div>
     <p><br></p>
-    <div style="margin:20px 0 20px 200px;width:200px;height:40px;background-color:#ccc;border-radius:3px;">发布</div>
+    <div id="release" class="release-btn">发布</div>
     <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="js/wangEditor.min.js"></script>
     <script type="text/javascript">
@@ -69,4 +75,34 @@
             }
         };
         editor.create();
+        $('#release').on('click',function(){
+            var title = $('#title').val(),
+                content = $('.code-textarea'),
+                date = new Date(),
+                year = date.getFullYear().toString(),
+                month = date.getMonth()+1,
+                day = date.getDate(),
+                art={
+                    'title':title,
+                    'content':content,
+                    'author':'',
+                    'date':year+'-'+month+'-'+day,
+                    'tag':$('input[type="radio"]:checked').val()
+                };
+            if(title==''){
+                alert('标题不能为空');
+                return;
+            }
+            if(content==''){
+                alert('内容不能为空');
+                return;
+            }
+            $.post('/index',art,function(data){
+                if(data.return){
+                    window.location.href='/index';
+                }else{
+                alert('发布失败！');
+                }
+            })
+        })
     </script>
