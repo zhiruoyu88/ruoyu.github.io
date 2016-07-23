@@ -57,7 +57,7 @@ app.post('/write', function(req, res){
   //   }else{
   //       res.json({sucess:false});
   //   }
-  })
+  // })
 });
 
 
