@@ -1,6 +1,6 @@
 var express = require('express'),
     app = express(),
-    select = require('./mysql/login');
+    select = require('../mysql/login');
 select.selectArticle(select.client,function(results){
     console.log(results);
     console.log(fields);
