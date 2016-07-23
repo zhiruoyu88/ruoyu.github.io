@@ -31,7 +31,7 @@
                     if(data.sucess){
                         window.location.href="/write";
                     }else{
-                        alert('密码错误，请重新输入！')
+                        alert('账号或密码错误，请重新输入！')
                     }
                 })
             });

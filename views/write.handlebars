@@ -100,7 +100,7 @@
                 return;
             }
             $.post('/write',art,function(data){
-                if(data.return){
+                if(data.sucess){
                     window.location.href='/index';
                 }else{
                 alert('发布失败！');
