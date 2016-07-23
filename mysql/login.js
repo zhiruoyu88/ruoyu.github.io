@@ -16,12 +16,11 @@ function selectUsr (client,username,callback){
         if(err){
             throw err;
         }
-        if(results[0].password)
-        {
-            callback(results[0].password);
-        }else{
-            callback(false);
-        }    
+        console.log(results)
+        // if(results)
+        // {
+        //     callback(results[0].password);
+        // }    
     });
 }
 // 插入数据
@@ -34,7 +33,6 @@ function insertSome (client , username , password,callback){
            callback(err);
      });
 }
-
 function insertblog (client,title,content,author,date,tag,callback){
     client.query('insert into blog_article(id,blog_title, blog_content,blog_author,write_date,blog_tag) value(0,?,?,?,?,?)',[title,content,author,date,tag], function(err,result){
          if(err){
