@@ -23,7 +23,7 @@ app.all('*', function(req, res, next) {
 app.get('/login',require('./routes/login'));
 app.use('/',require('./routes/index'));
 app.get('/about',require('./routes/about'));
-app.get('/write',require('./routes/write'))
+app.use('/write',require('./routes/write'))
 app.post('/login', function(req, res){
   var user = {
     name: req.body.name,
