@@ -29,9 +29,9 @@
                 };
                 $.post('/login',usr,function(data){
                     if(data.sucess){
-                        window.location.href="23.83.235.220:3000/write";
+                        window.location.href="/write";
                     }else{
-
+                        alert('密码错误，请重新输入！')
                     }
                 })
             });
