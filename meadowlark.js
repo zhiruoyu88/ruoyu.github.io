@@ -39,6 +39,7 @@ app.post('/login', function(req, res){
   })
 });
 app.post('/write', function(req, res){
+    console.log(req.body)
   var blog = {
     title: req.body.title,
     content:  req.body.content,
