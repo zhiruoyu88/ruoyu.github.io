@@ -79,15 +79,11 @@
             var title = $('#title').val(),
                 content = $('.code-textarea').val(),
                 date = new Date(),
-                year = date.getFullYear().toString(),
-                month = date.getMonth()+1,
-                day = date.getDate(),
-                now = year+'-'+month+'-'+day,
                 art={
                     title:title,
                     content:content,
                     author:'zhiruoyu',
-                    date:now,
+                    date:date,
                     tag:$('input[type="radio"]:checked').val()
                 };
                 console.log(art)
