@@ -13,8 +13,8 @@ select.selectArticle(select.client,function(results){
                 // var year = date.getFullYear().toString();
                 // var month = date.getMonth()+1;
                 // var day = date.getDate();
-                month = month<10?'0'+month:month;
-                results[i].write_date = year+'-'+month+'-'+day;
+                // month = month<10?'0'+month:month;
+                // results[i].write_date = year+'-'+month+'-'+day;
                 if(results[i].blog_tag==0){
                     results[i].blog_tag='生活';
                 }else if(results[i].blog_tag==1){
