@@ -47,7 +47,6 @@ app.post('/write', function(req, res){
     date:req.body.date,
     tag:req.body.tag
   };
-  console.log(blog);
   login.insertblog(login.client,blog.title,blog.content,blog.author,blog.date,blog.tag,function(result){
     if(result!=''){
         res.json({sucess:true});

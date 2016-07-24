@@ -12,9 +12,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
         body {
             background-color: #3F3F3F;
         }
-        /*ul,li {
+        ul,li {
             list-style: none;
-        }*/
+        }
+        a {
+          text-decoration: none;
+        }
     .containter {
         min-height: 100%;
     }
@@ -1356,4 +1359,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
         }
         .label-item {
           margin: 0 10px;
+        }
+        a {
+
         }
