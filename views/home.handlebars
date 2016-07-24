@@ -1,15 +1,17 @@
  <div class="containter">
         <div class="left">
+            {{#article}}
             <div class="article">
                 <div class="inner">
-                    <h2>我的第一片文章</h2>
+                    <a href=""><h2>{{blog_article}}</h2></a>
                     <p class="content">
-                        马无夜草不肥，人无外财不富。
+                        {{blog_content}}
                     </p>
-                    <span class="time"><i class="time-icon"></i>2016-07-16</span>
-                    <a href="" class="tag"><i class="tag-tri"></i><span class="tag-div"><i class="point"></i>生活</span></a>
+                    <span class="time"><i class="time-icon"></i>{{write_date}}</span>
+                    <a href="" class="tag"><i class="tag-tri"></i><span class="tag-div"><i class="point"></i>{{blog_tag}}</span></a>
                 </div>
             </div>
+            {{/article}}
         </div>
         <div style="position:fixed;width:300px;height:100%;overflow:hidden;right:0;">
             <div id="picLoop" class="right">
