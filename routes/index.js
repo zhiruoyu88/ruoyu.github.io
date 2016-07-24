@@ -9,7 +9,7 @@ select.selectArticle(select.client,function(results){
             for(var i=0;i<results.length;i++){
 
                 var date = results[i].write_date;
-                console.log(date)
+                console.log(date);
                 // var year = date.getFullYear().toString();
                 // var month = date.getMonth()+1;
                 // var day = date.getDate();
@@ -23,7 +23,7 @@ select.selectArticle(select.client,function(results){
             }
             
         }
-        console.log(results.)
+        console.log(results);
         res.type('text/html');
         res.render('home',{article:results});
     });
