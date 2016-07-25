@@ -8,7 +8,6 @@ var client = mysql.createConnection({
 client.connect();
 // 进入数据库
 client.query('use '+'MYFIRST');
-client.query('DATE_FORMAT(','%Y-%m-%d)');
 // 从表查询
 function selectUsr (client,username,callback){
     client.query(
