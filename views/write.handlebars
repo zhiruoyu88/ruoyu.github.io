@@ -1,13 +1,14 @@
-<link rel="stylesheet" type="text/css" href="css/wangEditor.min.css">
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/froala_editor.min.css" rel="stylesheet" type="text/css">
     <style type="text/css">
-        #editor-trigger {
-            height: 400px;
-            /*max-height: 500px;*/
+         body {
+            text-align: center;
         }
-        .container {
-            width: 100%;
-            margin: 0 auto;
-            position: relative;
+
+        section {
+            width: 80%;
+            margin: auto;
+            text-align: left;
         }
     </style>
 <p class="title">发布文章</p>
@@ -17,67 +18,33 @@
     <div class="tag">
         <label class="tag-label" for="">tag：</label><label class="label-item"><input value="0" name="tag" type="radio">生活</label><label class="label-item"><input value="1" name="tag" type="radio">技术</label>
     </div>
-    <div id="editor-container" class="container">
-        <div id="editor-trigger"><p>请输入内容</p><p>&lt;script&gt;&lt;/script&gt;</p></div>
-      <!--   <textarea id="editor-trigger" style="display:none;">
-            <p>请输入内容...</p>
-        </textarea> -->
-    </div>
-    <p><br></p>
-    <div id="release" class="release-btn">发布</div>
-    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="js/wangEditor.min.js"></script>
-    <script type="text/javascript">
-        var editor = new wangEditor('editor-trigger');
-        // 上传图片
-        editor.config.uploadImgUrl = '/upload';
-        editor.config.uploadParams = {
-            // token1: 'abcde',
-            // token2: '12345'
-        };
-        editor.config.uploadHeaders = {
-            // 'Accept' : 'text/x-json'
-        }
-        editor.config.emotionsShow = 'value';
-        editor.config.emotions = {
-            'default': {
-                title: '默认',
-                data: './emotions.data'
-            },
-            'weibo': {
-                title: '微博表情',
-                data: [
-                    {
-                        icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/7a/shenshou_thumb.gif',
-                        value: '[草泥马]'    
-                    },
-                    {
-                        icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/60/horse2_thumb.gif',
-                        value: '[神马]'    
-                    },
-                    {
-                        icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/bc/fuyun_thumb.gif',
-                        value: '[浮云]'    
-                    },
-                    {
-                        icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/c9/geili_thumb.gif',
-                        value: '[给力]'    
-                    },
-                    {
-                        icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/f2/wg_thumb.gif',
-                        value: '[围观]'    
-                    },
-                    {
-                        icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/70/vw_thumb.gif',
-                        value: '[威武]'
-                    }
-                ]
-            }
-        };
-        editor.create();
+    <section id="editor">
+          <div id='edit' style="margin-top: 30px;">
+              
+          </div>
+      </section>
+      <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+      <script src="js/libs/jquery-1.11.1.min.js"></script>
+      <script src="js/froala_editor.min.js"></script>
+      <!--[if lt IE 9]>
+        <script src="../js/froala_editor_ie8.min.js"></script>
+      <![endif]-->
+      <script src="js/plugins/tables.min.js"></script>
+      <script src="js/plugins/lists.min.js"></script>
+      <script src="js/plugins/colors.min.js"></script>
+      <script src="js/plugins/media_manager.min.js"></script>
+      <script src="js/plugins/font_family.min.js"></script>
+      <script src="js/plugins/font_size.min.js"></script>
+      <script src="js/plugins/block_styles.min.js"></script>
+      <script src="js/plugins/video.min.js"></script>
+
+      <script>
+          $(function(){
+              $('#edit').editable({inlineMode: false, alwaysBlank: true})
+          });
         $('#release').on('click',function(){
             var title = $('#title').val(),
-                content = $('.code-textarea').val(),
+                content = $('textarea').val(),
                 date = new Date(),
                 year = date.getFullYear().toString(),
                 month = date.getMonth()+1,
