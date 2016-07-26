@@ -20,7 +20,7 @@ var express = require('express'),
            //alert('FMO');
             return(xmlDoc);
           }
-         catch(e) {alert(e.message)}
+         catch(e) {console.log(e.message)}
        }
       return(null);
     }
