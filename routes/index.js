@@ -1,14 +1,29 @@
 var express = require('express'),
     app = express(),
     select = require('../mysql/login');
-function htmlspecialchars_decode(str){           
-                              str = str.replace(/&amp;/g, '&'); 
-                              str = str.replace(/&lt;/g, '<');
-                              str = str.replace(/&gt;/g, '>');
-                              str = str.replace(/&quot;/g, "''");  
-                              str = str.replace(/&#039;/g, "'");  
-                              return str;  
-                        };
+    function loadXMLString(txt) 
+    {
+      try //Internet Explorer
+       {
+         xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+         xmlDoc.async="false";
+         xmlDoc.loadXML(txt);
+         //alert('IE');
+         return(xmlDoc); 
+       }
+      catch(e)
+       {
+         try //Firefox, Mozilla, Opera, etc.
+          {
+            parser=new DOMParser();
+            xmlDoc=parser.parseFromString(txt,"text/xml");
+           //alert('FMO');
+            return(xmlDoc);
+          }
+         catch(e) {alert(e.message)}
+       }
+      return(null);
+    }
 
     app.get('/',function(req,res){
         select.selectArticle(select.client,function(results){
@@ -21,7 +36,7 @@ function htmlspecialchars_decode(str){
                     }else if(results[i].blog_tag==1){
                         results[i].blog_tag='技术';
                     }
-                    results[i].blog_content = htmlspecialchars_decode(results[i].blog_content);
+                    results[i].blog_content = loadXMLString(results[i].blog_content);
                     console.log(results[i].blog_content)
                 }
                 
