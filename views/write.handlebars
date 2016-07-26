@@ -2,6 +2,7 @@
     <style type="text/css">
         #editor-trigger {
             height: 400px;
+            /*max-height: 500px;*/
         }
         .container {
             width: 100%;
@@ -28,8 +29,6 @@
     <script type="text/javascript" src="js/wangEditor.min.js"></script>
     <script type="text/javascript">
         var editor = new wangEditor('editor-trigger');
-        var html = editor.html;
-        console.log(html);
         // 上传图片
         editor.config.uploadImgUrl = '/upload';
         editor.config.uploadParams = {
@@ -78,7 +77,7 @@
         editor.create();
         $('#release').on('click',function(){
             var title = $('#title').val(),
-                content = html,
+                content = $('.code-textarea').val(),
                 date = new Date(),
                 year = date.getFullYear().toString(),
                 month = date.getMonth()+1,
