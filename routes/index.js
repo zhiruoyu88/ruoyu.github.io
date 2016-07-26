@@ -21,7 +21,7 @@ function htmlspecialchars_decode(str){
                     }else if(results[i].blog_tag==1){
                         results[i].blog_tag='技术';
                     }
-                    results[i].blog_content = htmlspecialchars_decode(results[i].blog_content);
+                    results[i].blog_content = htmlspecialchars_decode(results[i].blog_content).replace(/\"/g,"");
                 }
                 
             }
