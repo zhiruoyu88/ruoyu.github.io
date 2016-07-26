@@ -1,12 +1,18 @@
+   <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
  <div class="containter">
         <div class="left">
             {{#article}}
             <div class="article">
                 <div class="inner">
-                    <a href=""><h2>{{blog_title}}</h2></a>
+                    <a id="title" href=""><h2>{{blog_title}}</h2></a>
                     <p class="content">
                         {{blog_content}}
                     </p>
+                    <script>
+                        $(function(){
+                            $('<p class="content">{{blog_content}}</p>').insertAfter('#title');
+                        })
+                    </script>
                     <span class="time"><i class="time-icon"></i>{{write_date}}</span>
                     <a href="" class="tag"><i class="tag-tri"></i><span class="tag-div"><i class="point"></i>{{blog_tag}}</span></a>
                 </div>
@@ -50,4 +56,4 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  
