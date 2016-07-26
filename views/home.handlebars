@@ -8,30 +8,15 @@
                     <p class="content">
                     </p>
                     <script>
-                    function htmlspecialchars(str) {        
-                          var s = "";  
-                          if (str.length == 0) return "";  
-                          for   (var i=0; i<str.length; i++)  
-                          {  
-                              switch (str.substr(i,1))  
-                              {  
-                                  case "<": s += "&lt;"; break;  
-                                  case ">": s += "&gt;"; break;  
-                                  case "&": s += "&amp;"; break;  
-                                  case " ":  
-                                      if(str.substr(i + 1, 1) == " "){  
-                                          s += " &nbsp;";  
-                                          i++;  
-                                      } else s += " ";  
-                                      break;  
-                                  case "\"": s += "&quot;"; break;  
-                                  case "\n": s += "<br>"; break;  
-                                  default: s += str.substr(i,1); break;  
-                              }  
-                          }  
-                          return s;  
-                      }
-                        $('.content').html(htmlspecialchars('{{blog_content}}'));
+                        function htmlspecialchars_decode(str){           
+                              str = str.replace(/&amp;/g, '&'); 
+                              str = str.replace(/&lt;/g, '<');
+                              str = str.replace(/&gt;/g, '>');
+                              str = str.replace(/&quot;/g, "''");  
+                              str = str.replace(/&#039;/g, "'");  
+                              return str;  
+                        }
+                        $('.content').html(htmlspecialchars_decode('{{blog_content}}'));
                     </script>
                     <span class="time"><i class="time-icon"></i>{{write_date}}</span>
                     <a href="" class="tag"><i class="tag-tri"></i><span class="tag-div"><i class="point"></i>{{blog_tag}}</span></a>
