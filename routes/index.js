@@ -1,6 +1,14 @@
 var express = require('express'),
     app = express(),
     select = require('../mysql/login');
+function htmlspecialchars_decode(str){           
+                              str = str.replace(/&amp;/g, '&'); 
+                              str = str.replace(/&lt;/g, '<');
+                              str = str.replace(/&gt;/g, '>');
+                              str = str.replace(/&quot;/g, "''");  
+                              str = str.replace(/&#039;/g, "'");  
+                              return str;  
+                        };
 
     app.get('/',function(req,res){
         select.selectArticle(select.client,function(results){
@@ -13,6 +21,7 @@ var express = require('express'),
                     }else if(results[i].blog_tag==1){
                         results[i].blog_tag='技术';
                     }
+                    results[i].blog_content = htmlspecialchars_decode(results[i].blog_content);
                 }
                 
             }
