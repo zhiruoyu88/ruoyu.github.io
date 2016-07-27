@@ -13,8 +13,6 @@ var express = require('express'),
                     }else if(results[i].blog_tag==1){
                         results[i].blog_tag='技术';
                     }
-                    results[i].blog_content = eval('('+results[i].blog_content+')');
-                    console.log(results[i].blog_content)
                 }
                 
             }
