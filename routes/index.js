@@ -1,29 +1,6 @@
 var express = require('express'),
     app = express(),
     select = require('../mysql/login');
-    function loadXMLString(txt) 
-    {
-      try //Internet Explorer
-       {
-         xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
-         xmlDoc.async="false";
-         xmlDoc.loadXML(txt);
-         //alert('IE');
-         return(xmlDoc); 
-       }
-      catch(e)
-       {
-         try //Firefox, Mozilla, Opera, etc.
-          {
-            parser=new DOMParser();
-            xmlDoc=parser.parseFromString(txt,"text/xml");
-           //alert('FMO');
-            return(xmlDoc);
-          }
-         catch(e) {console.log(e.message)}
-       }
-      return(null);
-    }
 
     app.get('/',function(req,res){
         select.selectArticle(select.client,function(results){
@@ -36,7 +13,7 @@ var express = require('express'),
                     }else if(results[i].blog_tag==1){
                         results[i].blog_tag='技术';
                     }
-                    results[i].blog_content = loadXMLString(results[i].blog_content);
+                    results[i].blog_content = eval('('+results[i].blog_content+')');
                     console.log(results[i].blog_content)
                 }
                 
