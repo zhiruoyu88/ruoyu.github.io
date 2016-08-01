@@ -1,10 +1,11 @@
 var select = require('../mysql/login');
+var a;
 var life = function(req,res){
     console.log(req.path);
     if(req.path=='/life'){
-        req.path=0;
-    }else{req.path=1}
-    select.selectArticle(select.client,req.path,function(results){
+        a=0;
+    }else{a=1}
+    select.selectArticle(select.client,a,function(results){
         for(var i=0;i<results.length;i++){
                     if(results[i].blog_tag==0){
                         results[i].blog_tag='生活';
