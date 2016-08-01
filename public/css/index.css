@@ -1246,7 +1246,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
         }
         a.tag {
             display: inline-block;
-            margin-top:10px;
+            margin-top:20px;
         }
         a.tag:hover {
             opacity: 0.8;
@@ -1356,9 +1356,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
           background-color: #bbb;
         }
         .tag {
-            height: 40px;
-            line-height: 40px;
-            margin-bottom: 20px;
+            height: 20px;
+            line-height: 20px;
         }
         .tag-label {
               font-size: 20px;

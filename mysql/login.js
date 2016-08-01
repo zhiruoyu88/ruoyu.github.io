@@ -28,9 +28,26 @@ function selectUsr (client,username,callback){
     });
 }
 
-function selectArticle (client,callback){
+function selectArticle (client,arg,callback){
+  selectIt=arg=''?'select * from blog_article;':'select * from blog_article where blog_tag='+arg+';';
     client.query(
-    'select * from blog_article;',
+    selectIt,
+    function selectdb (err,results,fields){
+        if(err){
+            throw err;
+        }
+        if(results.length!==0){
+            callback(results);
+        }else if (results.length==0){
+            callback(false);
+        }
+    }
+)
+}
+
+function selectArticle (client,arg,callback){
+    client.query(
+    'select * from blog_article where blog_tag='+arg+';',
     function selectdb (err,results,fields){
         if(err){
             throw err;

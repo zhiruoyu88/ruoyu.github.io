@@ -3,7 +3,7 @@ var express = require('express'),
     select = require('../mysql/login');
 
     app.get('/',function(req,res){
-        select.selectArticle(select.client,function(results){
+        select.selectArticle(select.client,'',function(results){
             if(!results){
                 results={}
             }else{
