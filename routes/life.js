@@ -1,7 +1,7 @@
 var select = require('../mysql/login');
 var life = function(req,res){
     console.log(req.path);
-    if(req.path=='生活'){
+    if(req.path=='life'){
         req.path=0;
     }else{req.path=1}
     select.selectArticle(select.client,req.path,function(result){

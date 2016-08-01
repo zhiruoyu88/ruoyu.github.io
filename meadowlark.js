@@ -26,7 +26,7 @@ app.use('/',require('./routes/index'));
 app.use('/index',require('./routes/index'));
 app.get('/about',require('./routes/about'));
 app.get('/write',require('./routes/write'));
-app.get('/生活',require('./routes/life'))
+app.get('/life',require('./routes/life'))
 app.post('/login', function(req, res){
   var user = {
     name: req.body.name,
