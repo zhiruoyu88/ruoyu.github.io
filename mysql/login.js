@@ -45,21 +45,21 @@ function selectArticle (client,arg,callback){
 )
 }
 
-function selectArticle (client,arg,callback){
-    client.query(
-    'select * from blog_article where blog_tag='+arg+';',
-    function selectdb (err,results,fields){
-        if(err){
-            throw err;
-        }
-        if(results.length!==0){
-            callback(results);
-        }else if (results.length==0){
-            callback(false);
-        }
-    }
-)
-}
+// function selectArticle (client,arg,callback){
+//     client.query(
+//     'select * from blog_article where blog_tag='+arg+';',
+//     function selectdb (err,results,fields){
+//         if(err){
+//             throw err;
+//         }
+//         if(results.length!==0){
+//             callback(results);
+//         }else if (results.length==0){
+//             callback(false);
+//         }
+//     }
+// )
+// }
 // 插入数据
 function insertSome (client , username , password,callback){
     client.query('insert into usr value('+username+','+password+');', [username, password], function(err,result){
