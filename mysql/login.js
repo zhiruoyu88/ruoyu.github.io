@@ -30,6 +30,7 @@ function selectUsr (client,username,callback){
 
 function selectArticle (client,arg,callback){
   selectIt=arg=''?'select * from blog_article;':'select * from blog_article where blog_tag='+arg+';';
+  console.log(selectIt)
     client.query(
     selectIt,
     function selectdb (err,results,fields){

@@ -3,7 +3,9 @@ var express = require('express'),
     select = require('../mysql/login');
 
     app.get('/',function(req,res){
+        console.log(1)
         select.selectArticle(select.client,'',function(results){
+            console.log(2)
             if(!results){
                 results={}
             }else{
