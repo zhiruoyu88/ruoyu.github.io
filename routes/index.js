@@ -10,8 +10,10 @@ var express = require('express'),
                 for(var i=0;i<results.length;i++){
                     if(results[i].blog_tag==0){
                         results[i].blog_tag='生活';
+                        results[i].blog_tag_url='life';
                     }else if(results[i].blog_tag==1){
                         results[i].blog_tag='技术';
+                        results[i].blog_tag_url='tech';
                     }
                 }
                 
