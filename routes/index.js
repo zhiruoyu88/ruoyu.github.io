@@ -16,7 +16,6 @@ var express = require('express'),
                         results[i].blog_tag='技术';
                         results[i].blog_tag_url='tech';
                     }
-                    console.log(results[i].blog_tag_url)
                 }
                 
             }
