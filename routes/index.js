@@ -7,6 +7,7 @@ var express = require('express'),
             if(!results){
                 results={}
             }else{
+                results.reverse();
                 for(var i=0;i<results.length;i++){
                     if(results[i].blog_tag==0){
                         results[i].blog_tag='生活';

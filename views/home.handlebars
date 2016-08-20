@@ -36,15 +36,18 @@
                 <div class="r-item">
                     <h3>标签</h3>
                     <ul>
-                        <a href=""><li>生活</li></a>
-                        <a href=""><li>技术</li></a>
+                        <a href="life"><li>生活</li></a>
+                        <a href="tech"><li>技术</li></a>
                     </ul>
                 </div>
                 <div class="r-item">
                     <h3>最新文章</h3>
                     <ul>
-                        <a href=""><li>我的第一篇文章</li></a>
-                        <a href=""><li>斑马斑马</li></a>
+                        {{#article}}
+                        {{#if @index<4}}
+                        <a href=""><li>{{blog_title}}</li></a>
+                        {{/if}}
+                        {{/article}}
                     </ul>
                 </div>
                 <a class="login" href="/write">login&rarr;</a>
