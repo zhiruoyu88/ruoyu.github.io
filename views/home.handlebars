@@ -43,11 +43,13 @@
                 <div class="r-item">
                     <h3>最新文章</h3>
                     <ul>
+                    <script id="table-template" type="text/x-handlebars-template">
                         {{#article}}
                         {{#compare @index 4}}
                         <a href=""><li>{{blog_title}}</li></a>
                         {{/compare}}
                         {{/article}}
+                    </script>
                     </ul>
                 </div>
                 <a class="login" href="/write">login&rarr;</a>
@@ -55,12 +57,14 @@
         </div>
     </div>
     <script>
+        var myTemplate = Handlebars.compile($("#table-template").html());
         Handlebars.registerHelper('compare',function(a,b,options){
             if(a<b){
                 return options.fn(this);
             }else{
                 return options.inverse(this);
             }
-        })
+        });
+        $('#tableList').html(myTemplate(data));
     </script>
   
