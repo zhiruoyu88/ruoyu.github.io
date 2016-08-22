@@ -44,14 +44,23 @@
                     <h3>最新文章</h3>
                     <ul>
                         {{#article}}
-                        {{#xif @index<4}}
+                        {{#compare @index 4}}
                         <a href=""><li>{{blog_title}}</li></a>
                         {{/xif}}
-                        {{/article}}
+                        {{/compare}}
                     </ul>
                 </div>
                 <a class="login" href="/write">login&rarr;</a>
             </div>
         </div>
     </div>
+    <script>
+        Handlebars.registerHelper('compare',function(a,b,options){
+            if(a<b){
+                return options.fn(this);
+            }else{
+                return options.inverse(this);
+            }
+        })
+    </script>
   
