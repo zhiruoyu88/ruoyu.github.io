@@ -44,9 +44,9 @@
                     <h3>最新文章</h3>
                     <ul>
                         {{#article}}
-                        {{#if @index<4}}
+                        {{#xif @index<4}}
                         <a href=""><li>{{blog_title}}</li></a>
-                        {{/if}}
+                        {{/xif}}
                         {{/article}}
                     </ul>
                 </div>
