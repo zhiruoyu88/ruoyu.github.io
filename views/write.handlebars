@@ -68,7 +68,7 @@
                     tag:$('input[type="radio"]:checked').val()
                 };
                 console.log(art)
-            if($('input[type="radio"]:checked')){
+            if(!$('input[type="radio"]:checked')){
                 alert('请选择标签');
                 return;
             }
