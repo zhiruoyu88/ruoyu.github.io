@@ -6,7 +6,7 @@ var handlebars = require('express3-handlebars')
             .create({defaultLayout:'main'});
     app.engine('handlebars',handlebars.engine);
     app.set('view engine','handlebars');
-handlebars.registerHelper('compare', function(left, operator, right, options) {
+Handlebars.registerHelper('compare', function(left, operator, right, options) {
          if (arguments.length < 3) {
            throw new Error('Handlerbars Helper "compare" needs 2 parameters');
          }
