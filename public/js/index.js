@@ -35,4 +35,4 @@
                     }
                 })
             });
-       }(window,document,$);
+       }(window,document,jQuery);
