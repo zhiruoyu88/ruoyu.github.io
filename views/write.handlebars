@@ -68,6 +68,10 @@
                     tag:$('input[type="radio"]:checked').val()
                 };
                 console.log(art)
+            if($('input[type="radio"]:checked')){
+                alert('请选择标签');
+                return;
+            }
             if(title==''){
                 alert('标题不能为空');
                 return;

@@ -44,7 +44,7 @@
                     <h3>最新文章</h3>
                     <ul>
                         {{#article}}
-                        {{#compare index 4}}
+                        {{#compare @index < 4}}
                         <a href=""><li>{{blog_title}}</li></a>
                         {{/compare}}
                         {{/article}}
@@ -55,13 +55,33 @@
         </div>
     </div>
     <script>
-        var Handlebars = require('express3-handlebars');
-        Handlebars.registerHelper('compare',function(a,b,options){
-            if(a<b){
-            return options.fn(this);
-            }else {
-            return options.inverse(this);
-            }
-        })
+        Handlebars.registerHelper('compare', function(left, operator, right, options) {
+         if (arguments.length < 3) {
+           throw new Error('Handlerbars Helper "compare" needs 2 parameters');
+         }
+         var operators = {
+           '==':     function(l, r) {return l == r; },
+           '===':    function(l, r) {return l === r; },
+           '!=':     function(l, r) {return l != r; },
+           '!==':    function(l, r) {return l !== r; },
+           '<':      function(l, r) {return l < r; },
+           '>':      function(l, r) {return l > r; },
+           '<=':     function(l, r) {return l <= r; },
+           '>=':     function(l, r) {return l >= r; },
+           'typeof': function(l, r) {return typeof l == r; }
+         };
+
+         if (!operators[operator]) {
+           throw new Error('Handlerbars Helper "compare" doesn\'t know the operator ' + operator);
+         }
+
+         var result = operators[operator](left, right);
+
+         if (result) {
+           return options.fn(this);
+         } else {
+           return options.inverse(this);
+         }
+     });
     </script>
   
