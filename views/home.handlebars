@@ -55,6 +55,7 @@
         </div>
     </div>
     <script>
+        var Handlebars = require('express3-handlebars');
         Handlebars.registerHelper('compare',function(a,b,options){
             if(a<b){
             return options.fn(this);
