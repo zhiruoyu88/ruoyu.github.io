@@ -55,7 +55,7 @@
         </div>
     </div>
     <script>
-        Handlebars.registerHelper('compare', function(left, operator, right, options) {
+        handlebars.registerHelper('compare', function(left, operator, right, options) {
          if (arguments.length < 3) {
            throw new Error('Handlerbars Helper "compare" needs 2 parameters');
          }
