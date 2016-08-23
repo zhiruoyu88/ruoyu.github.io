@@ -55,7 +55,7 @@
         </div>
     </div>
     <script>
-        hbs.registerHelper('compare',function(a,b,options){
+        Handlebars.registerHelper('compare',function(a,b,options){
             if(a<b){
             return options.fn(this);
             }else {
