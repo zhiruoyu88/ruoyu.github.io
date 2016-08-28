@@ -3,6 +3,34 @@ var express = require('express'),
 var bodyParser = require('body-parser');
 var login = require('./mysql/login');
 var handlebars = require('express3-handlebars')
+            .registerHelper('compare', function(left, operator, right, options) {
+                 if (arguments.length < 3) {
+                   throw new Error('Handlerbars Helper "compare" needs 2 parameters');
+                 }
+                 var operators = {
+                   '==':     function(l, r) {return l == r; },
+                   '===':    function(l, r) {return l === r; },
+                   '!=':     function(l, r) {return l != r; },
+                   '!==':    function(l, r) {return l !== r; },
+                   '<':      function(l, r) {return l < r; },
+                   '>':      function(l, r) {return l > r; },
+                   '<=':     function(l, r) {return l <= r; },
+                   '>=':     function(l, r) {return l >= r; },
+                   'typeof': function(l, r) {return typeof l == r; }
+                 };
+
+                 if (!operators[operator]) {
+                   throw new Error('Handlerbars Helper "compare" doesn\'t know the operator ' + operator);
+                 }
+
+                 var result = operators[operator](left, right);
+
+                 if (result) {
+                   return options.fn(this);
+                 } else {
+                   return options.inverse(this);
+                 }
+             });
             .create({defaultLayout:'main'});
     app.engine('handlebars',handlebars.engine);
     app.set('view engine','handlebars');
