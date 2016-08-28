@@ -30,7 +30,7 @@ var handlebars = require('express3-handlebars')
                  } else {
                    return options.inverse(this);
                  }
-             });
+             })
             .create({defaultLayout:'main'});
     app.engine('handlebars',handlebars.engine);
     app.set('view engine','handlebars');
