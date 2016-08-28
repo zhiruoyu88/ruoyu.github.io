@@ -3,7 +3,8 @@ var express = require('express'),
 var bodyParser = require('body-parser');
 var login = require('./mysql/login');
 var handlebars = require('express3-handlebars')
-            .registerHelper('compare', function(left, operator, right, options) {
+            .create({defaultLayout:'main'});
+handlebars.registerHelper('compare', function(left, operator, right, options) {
                  if (arguments.length < 3) {
                    throw new Error('Handlerbars Helper "compare" needs 2 parameters');
                  }
@@ -31,7 +32,6 @@ var handlebars = require('express3-handlebars')
                    return options.inverse(this);
                  }
              })
-            .create({defaultLayout:'main'});
     app.engine('handlebars',handlebars.engine);
     app.set('view engine','handlebars');
 app.set('port',process.env.PORT || 8088);
